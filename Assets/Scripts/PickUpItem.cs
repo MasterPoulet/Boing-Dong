@@ -2,26 +2,38 @@ using UnityEngine;
 
 public class PickUpItem : MonoBehaviour
 {
-    [SerializeField]
-    private float pickupRange = 2.6f;
-
     public Inventory inventory;
 
-    void Update()
-    {
-        RaycastHit hit;
-        
-        if(Physics.Raycast(transform.position, transform.forward, out hit, pickupRange))
-        {
-            if(hit.transform.CompareTag("Item"))
-            {
-                Debug.Log("Item détecté devant le joueur");
+    private GameObject currentItem;
 
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    inventory.content.Add(hit.transform.gameObject.GetComponent<Item>().item);
-                    Destroy(hit.transform.gameObject);
-                }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            Debug.Log("Item détecté devant le joueur");
+            currentItem = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            currentItem = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (currentItem != null && Input.GetKeyDown(KeyCode.E))
+        {
+            Item itemComponent = currentItem.GetComponent<Item>();
+
+            if (itemComponent != null)
+            {
+                inventory.content.Add(itemComponent.item);
+                Destroy(currentItem);
+                currentItem = null;
             }
         }
     }
