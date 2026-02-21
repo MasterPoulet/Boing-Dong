@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8df2ea095da814ca644e7518aeac65, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  name: Stone
+  nameItem: Pierre
+  descriptionItem: Une pierre banale rien de plus, rien de moins...
   visual: {fileID: 21300000, guid: b74c31d447d2f5d41a61081bdf5e7126, type: 3}
   prefab: {fileID: 5125522779562178636, guid: 03ab711016be82840b4148fcd6b77470, type: 3}
