@@ -16,3 +16,4 @@ MonoBehaviour:
   descriptionItem: Une pierre banale rien de plus, rien de moins...
   visual: {fileID: 21300000, guid: b74c31d447d2f5d41a61081bdf5e7126, type: 3}
   prefab: {fileID: 5125522779562178636, guid: 03ab711016be82840b4148fcd6b77470, type: 3}
+  itemType: 2
