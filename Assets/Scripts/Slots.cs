@@ -18,4 +18,9 @@ public class Slots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         ToolTipSystem.instance.Hide();
     }
+
+    public void ClickOnSlot()
+    {
+        Inventory.instance.OpenActionPanel(item);
+    }
 }

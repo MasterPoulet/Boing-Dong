@@ -17,6 +17,28 @@ public class Inventory : MonoBehaviour
     const int InventorySize = 12; // Le nombre de slots max d'ans l'inventaire. ATTENTION ! à la variable const
 
 
+    [Header("Action Panel References")]
+
+    [SerializeField]
+    private GameObject actionPanel;
+
+    [SerializeField]
+    private GameObject UseItemButton;
+
+    [SerializeField]
+    private GameObject InspectItemButton;
+
+    [SerializeField]
+    private GameObject DeleteItemButton;
+
+
+    public static Inventory instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Liste de ce qu'il y a dans l'inventaire + comment les ajouter
     public List<ItemData> content = new List<ItemData>();
 
@@ -45,6 +67,36 @@ public class Inventory : MonoBehaviour
     public bool IsFull()
     {
         return InventorySize == content.Count;
+    }
+
+    public void OpenActionPanel(ItemData item)
+    {
+        if(item ==  null)
+        {
+            return;
+        }
+
+        switch(item.itemType)
+        {
+            case ItemType.Consumable:
+                UseItemButton.SetActive(true);
+                InspectItemButton.SetActive(false);
+                break;
+            case ItemType.Key:
+                UseItemButton.SetActive(true);
+                InspectItemButton.SetActive(true);
+                break;
+            case ItemType.Weapon:
+                UseItemButton.SetActive(true);
+                InspectItemButton.SetActive(false);
+                break;
+            case ItemType.Ammo:
+                UseItemButton.SetActive(true);
+                InspectItemButton.SetActive(false);
+                break;
+        }
+
+        actionPanel.SetActive(true);
     }
 
     private void Update()
