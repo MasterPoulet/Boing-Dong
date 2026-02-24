@@ -7,6 +7,7 @@ public class ItemData : ScriptableObject
     public string descriptionItem;
     public Sprite visual;
     public GameObject prefab;
+    public bool stackable;
 
     public ItemType itemType;
 }

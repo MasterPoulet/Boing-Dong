@@ -31,8 +31,14 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject DeleteItemButton;
 
+    private ItemData itemCurrentlySelected;
+
+    [SerializeField]
+    private Sprite emptySlotVisual;
 
     public static Inventory instance;
+
+    private bool isOpen = false;
 
     private void Awake()
     {
@@ -47,14 +53,33 @@ public class Inventory : MonoBehaviour
         content.Add(item);
     }
 
+    private void OpenInventory()
+    {
+        inventoryPanel.SetActive(true);
+        isOpen = true;
+    }
+
     // Permet de fermer l'inventaire lorsque l'on clique sur la croix
     public void CloseInventory()
     {
         inventoryPanel.SetActive(false);
+        actionPanel.SetActive(false);
+        ToolTipSystem.instance.Hide();
+        isOpen = false;
     }
 
     private void RefreshContent()
     {
+        // On vide tous les slots / visuels
+        for (int i = 0; i < inventorySlotsParent.childCount; i++)
+        {
+            Slots currentSlot = inventorySlotsParent.GetChild(i).GetComponent<Slots>();
+
+            currentSlot.item = null;
+            currentSlot.itemVisual.sprite = emptySlotVisual;
+        }
+
+        // On affiche les objets que le joueur a sur lui
         for (int i = 0; i < content.Count; i++)
         {
             Slots currentSlot = inventorySlotsParent.GetChild(i).GetComponent<Slots>();
@@ -69,10 +94,13 @@ public class Inventory : MonoBehaviour
         return InventorySize == content.Count;
     }
 
-    public void OpenActionPanel(ItemData item)
+    public void OpenActionPanel(ItemData item, Vector3 slotPosition)
     {
+        itemCurrentlySelected = item;
+
         if(item ==  null)
         {
+            actionPanel.SetActive(false);
             return;
         }
 
@@ -96,7 +124,33 @@ public class Inventory : MonoBehaviour
                 break;
         }
 
+        actionPanel.transform.position = slotPosition;
         actionPanel.SetActive(true);
+    }
+
+    public void  CloseActionPanel()
+    {
+        actionPanel.SetActive(false);
+        itemCurrentlySelected = null;
+    }
+
+    public void UseActionButton()
+    {
+        print(itemCurrentlySelected.name + " a été utilisé");
+        CloseActionPanel();
+    }
+
+    public void InspectActionButton()
+    {
+        print(itemCurrentlySelected.name + " a été inspecté");
+        CloseActionPanel();
+    }
+
+    public void DeleteActionButton()
+    {
+        content.Remove(itemCurrentlySelected);
+        RefreshContent();
+        CloseActionPanel();
     }
 
     private void Update()
@@ -105,7 +159,14 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.I))
         {
             RefreshContent();
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            if (isOpen)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
         }
 
         // Permet d'afficher la souris lorsque l'inventaire est affiché
