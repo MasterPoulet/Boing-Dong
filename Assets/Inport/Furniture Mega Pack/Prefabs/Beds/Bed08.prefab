@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 770101332486174114}
+  - component: {fileID: 2273229954837408136}
   m_Layer: 0
   m_Name: Bed08
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 4409205379429441228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2273229954837408136
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82242570254440701}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5084503, y: 2.3330956, z: 4.888444}
+  m_Center: {x: -0.0052951574, y: 1.1513064, z: -0.0052018166}
 --- !u!1 &1575310330164058094
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6036088923216353025}
   - component: {fileID: 1832533125572431807}
   - component: {fileID: 6098699150476294170}
+  - component: {fileID: 7879891518866471338}
   m_Layer: 0
   m_Name: BedFrame39
   m_TagString: Untagged
@@ -118,3 +119,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7879891518866471338
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316946940887681520}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1172385419074832298, guid: 6559c8baec7b27e46ba61e365b00ce73, type: 3}

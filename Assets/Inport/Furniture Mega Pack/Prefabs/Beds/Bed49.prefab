@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 739626521206188384}
   - component: {fileID: 7711291123911734581}
   - component: {fileID: 6901206507986049200}
+  - component: {fileID: 1150204757749047817}
   m_Layer: 0
   m_Name: Mattress49
   m_TagString: Untagged
@@ -86,6 +87,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1150204757749047817
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860727011792157906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1013798695710977589, guid: 3568a589eb1b6f441a646a6ba0c9f314, type: 3}
 --- !u!1 &7249562209489796428
 GameObject:
   m_ObjectHideFlags: 0

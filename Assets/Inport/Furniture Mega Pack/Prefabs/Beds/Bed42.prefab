@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3725848834975166960}
   - component: {fileID: 1190853796368684507}
   - component: {fileID: 8224887995317658440}
+  - component: {fileID: 9167412804972653692}
   m_Layer: 0
   m_Name: BedFrame42
   m_TagString: Untagged
@@ -86,6 +87,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9167412804972653692
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204635778666146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3921566381450911309, guid: 257417a7ad8e4e647b5987d4e2a7a65b, type: 3}
 --- !u!1 &1097313322816941941
 GameObject:
   m_ObjectHideFlags: 0

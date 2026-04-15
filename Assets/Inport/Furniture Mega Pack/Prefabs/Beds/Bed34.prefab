@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2569158500163013948}
   - component: {fileID: 4577747497726530606}
   - component: {fileID: 8733389164287956123}
+  - component: {fileID: 2869063458763721503}
   m_Layer: 0
   m_Name: BedFrame34
   m_TagString: Untagged
@@ -87,6 +88,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2869063458763721503
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600346609546421069}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2568683294825552445, guid: f49f17bddcbf8f046a2261b5760569ec, type: 3}
 --- !u!1 &5543861841016132906
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +121,7 @@ GameObject:
   - component: {fileID: 2508824160744456460}
   - component: {fileID: 1967418650547572688}
   - component: {fileID: 1564289697045894570}
+  - component: {fileID: 2008493479122715417}
   m_Layer: 0
   m_Name: Mattress34
   m_TagString: Untagged
@@ -173,6 +197,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2008493479122715417
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5543861841016132906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5920868714776944537, guid: f49f17bddcbf8f046a2261b5760569ec, type: 3}
 --- !u!1 &6279954547227687430
 GameObject:
   m_ObjectHideFlags: 0
