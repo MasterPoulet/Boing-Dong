@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]
-    private GameObject inventoryPanel;
+    public GameObject inventoryPanel;
 
     public MonoBehaviour CameraScript;
 
@@ -38,7 +38,9 @@ public class Inventory : MonoBehaviour
 
     public static Inventory instance;
 
-    private bool isOpen = false;
+    public bool isOpen = false;
+
+    public bool usePressed = false;
 
     private void Awake()
     {
@@ -53,7 +55,7 @@ public class Inventory : MonoBehaviour
         content.Add(item);
     }
 
-    private void OpenInventory()
+    public void OpenInventory()
     {
         inventoryPanel.SetActive(true);
         isOpen = true;
@@ -135,6 +137,7 @@ public class Inventory : MonoBehaviour
     public void UseActionButton()
     {
         print(itemCurrentlySelected.name + " a été utilisé");
+        usePressed = true;
         CloseActionPanel();
     }
 

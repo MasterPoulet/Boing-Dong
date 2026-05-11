@@ -35,7 +35,7 @@ public class PickUpItem : MonoBehaviour
             if (itemComponent != null)
             {
                 inventory.content.Add(itemComponent.item);
-                Destroy(currentItem);
+                currentItem.transform.position = new Vector3(33, 0, 10);
                 currentItem = null;
             }
         }
