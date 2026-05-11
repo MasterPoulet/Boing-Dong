@@ -9,10 +9,7 @@ public class Slots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (item != null)
-        {
-            ToolTipSystem.instance.Show(item.descriptionItem, item.nameItem);
-        }
+
     }
     public void OnPointerExit(PointerEventData eventData)
     {

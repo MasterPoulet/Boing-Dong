@@ -110,17 +110,15 @@ public class Inventory : MonoBehaviour
                 UseItemButton.SetActive(true);
                 InspectItemButton.SetActive(false);
                 break;
+            case ItemType.Egg:
+                UseItemButton.SetActive(true);
+                InspectItemButton.SetActive(true);
+                DeleteItemButton.SetActive(false);
+                break;
             case ItemType.Key:
                 UseItemButton.SetActive(true);
                 InspectItemButton.SetActive(true);
-                break;
-            case ItemType.Weapon:
-                UseItemButton.SetActive(true);
-                InspectItemButton.SetActive(false);
-                break;
-            case ItemType.Ammo:
-                UseItemButton.SetActive(true);
-                InspectItemButton.SetActive(false);
+                DeleteItemButton.SetActive(false);
                 break;
         }
 
@@ -143,6 +141,10 @@ public class Inventory : MonoBehaviour
     public void InspectActionButton()
     {
         print(itemCurrentlySelected.name + " a été inspecté");
+        if (itemCurrentlySelected != null)
+        {
+            ToolTipSystem.instance.Show(itemCurrentlySelected.descriptionItem, itemCurrentlySelected.nameItem);
+        }
         CloseActionPanel();
     }
 
