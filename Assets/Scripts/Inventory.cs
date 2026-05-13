@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.UI;
@@ -41,6 +42,10 @@ public class Inventory : MonoBehaviour
     public bool isOpen = false;
 
     public bool usePressed = false;
+
+    public Bell bell;
+
+    public string Tagname;
 
     private void Awake()
     {
@@ -134,9 +139,8 @@ public class Inventory : MonoBehaviour
         itemCurrentlySelected = null;
     }
 
-    public void UseActionButton()
+    public void UseActionButton(ItemData item)
     {
-        print(itemCurrentlySelected.name + " a été utilisé");
         usePressed = true;
         CloseActionPanel();
     }
@@ -189,5 +193,14 @@ public class Inventory : MonoBehaviour
             CameraScript.enabled = true; // débloque la camera
         }
 
+        // Permet de reconnaitre oeuf choisi
+
+        if (usePressed)
+        {
+            if (itemCurrentlySelected != null && itemCurrentlySelected.prefab.CompareTag("EggLeaf"))
+            {
+                print(itemCurrentlySelected.name + " a été utilisé");
+            }
+        }
     }
 }

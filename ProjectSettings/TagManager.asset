@@ -7,11 +7,12 @@ TagManager:
   - CinemachineTarget
   - Item
   - Bell
+  - EggLeaf
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Object
   - Water
   - UI
   - 

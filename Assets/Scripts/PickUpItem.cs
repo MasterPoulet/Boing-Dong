@@ -10,7 +10,7 @@ public class PickUpItem : MonoBehaviour
     // Regarde si le gameobject a le tag Item et s'il est dans le collider
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Object"))
         {
             Debug.Log("Item détecté devant le joueur");
             currentItem = other.gameObject;
@@ -19,7 +19,7 @@ public class PickUpItem : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Object"))
         {
             currentItem = null;
         }
