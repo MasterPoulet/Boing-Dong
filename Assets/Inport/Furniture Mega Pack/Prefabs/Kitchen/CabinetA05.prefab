@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5153350451043034335}
   - component: {fileID: 9040424763436335081}
   - component: {fileID: 8621013936040009288}
+  - component: {fileID: 8127795050059970401}
   m_Layer: 0
   m_Name: CabinetA05_model
   m_TagString: Untagged
@@ -173,6 +174,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8127795050059970401
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137463086046830109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0042073387, y: 0.005492719, z: 0.0062962766}
+  m_Center: {x: 0.0020785767, y: 0.0027232422, z: -0.0031481378}
 --- !u!1 &8313682728205013933
 GameObject:
   m_ObjectHideFlags: 0

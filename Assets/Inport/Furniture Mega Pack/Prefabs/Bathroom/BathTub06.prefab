@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2941784738254763337}
   - component: {fileID: 5117902591325525059}
   - component: {fileID: 5615500828886687177}
+  - component: {fileID: 6201844200902612666}
   m_Layer: 0
   m_Name: BathTub06_model
   m_TagString: Untagged
@@ -118,3 +119,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6201844200902612666
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326904130149011960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 930496109986960394, guid: c52ec7758a92f7640bb54c84c5517d3f, type: 3}

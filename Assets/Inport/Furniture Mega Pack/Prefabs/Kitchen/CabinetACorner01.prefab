@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6475037317191827570}
   - component: {fileID: 7474734581982856742}
   - component: {fileID: 6563437136543290829}
+  - component: {fileID: 3584568273627635006}
   m_Layer: 0
   m_Name: CabinetACorner01_model
   m_TagString: Untagged
@@ -118,3 +119,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3584568273627635006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647207828904326872}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0078052683, y: 0.0078052697, z: 0.009168308}
+  m_Center: {x: -0.0039026341, y: 0.0015669652, z: 0.0045841527}
