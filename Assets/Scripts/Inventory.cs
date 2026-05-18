@@ -139,10 +139,16 @@ public class Inventory : MonoBehaviour
         itemCurrentlySelected = null;
     }
 
-    public void UseActionButton(ItemData item)
+    public void UseActionButton()
     {
-        usePressed = true;
-        CloseActionPanel();
+
+        if (bell != null)
+        {
+            print(itemCurrentlySelected.name + " a été utilisé");
+            bell.PlacePrefab(itemCurrentlySelected);
+            CloseActionPanel();
+        }
+        
     }
 
     public void InspectActionButton()

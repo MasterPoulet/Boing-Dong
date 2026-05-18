@@ -34,6 +34,7 @@ public class PickUpItem : MonoBehaviour
 
             if (itemComponent != null)
             {
+                itemComponent.item.prefab = currentItem;
                 inventory.content.Add(itemComponent.item);
                 currentItem.transform.position = new Vector3(33, 0, 10);
                 currentItem = null;
