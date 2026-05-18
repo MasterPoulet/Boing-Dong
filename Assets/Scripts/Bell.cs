@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Bell : MonoBehaviour
 {
-    public bool peutOuvrir;
     public Inventory inventory;
     public ItemData itemData;
-    public Transform[] position;
+    public Transform[] positionEgg;
 
 
 
     public void OnTriggerEnter(Collider other)
     {
-        peutOuvrir = other.CompareTag("Player");
         inventory.bell = this;
     }
 
@@ -21,13 +19,12 @@ public class Bell : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            peutOuvrir = false;
             inventory.bell = null;
         }
     }
 
     public void PlacePrefab(ItemData item)
     {
-        item.prefab.transform.position = position[item.ID].position;
+        item.prefab.transform.position = positionEgg[item.ID].position;
     }
 }

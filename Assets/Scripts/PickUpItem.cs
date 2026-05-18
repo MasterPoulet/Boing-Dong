@@ -36,7 +36,8 @@ public class PickUpItem : MonoBehaviour
             {
                 itemComponent.item.prefab = currentItem;
                 inventory.content.Add(itemComponent.item);
-                currentItem.transform.position = new Vector3(33, 0, 10);
+                currentItem.transform.position = new Vector3(33, 0, 10); // téléporte l'objet hors map
+                currentItem.layer = LayerMask.NameToLayer("Default"); // permet à ce que le joueur ne puisse pas reprendre l'objet une fois utilisé
                 currentItem = null;
             }
         }

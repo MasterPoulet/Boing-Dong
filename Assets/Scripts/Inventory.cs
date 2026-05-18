@@ -41,11 +41,13 @@ public class Inventory : MonoBehaviour
 
     public bool isOpen = false;
 
-    public bool usePressed = false;
-
     public Bell bell;
 
-    public string Tagname;
+    // flashlight
+    public bool flashLightUsed = false;
+    [SerializeField]
+    private GameObject lightFL;
+
 
     private void Awake()
     {
@@ -113,9 +115,10 @@ public class Inventory : MonoBehaviour
 
         switch(item.itemType)
         {
-            case ItemType.Consumable:
+            case ItemType.Utilitaire:
                 UseItemButton.SetActive(true);
-                InspectItemButton.SetActive(false);
+                InspectItemButton.SetActive(true);
+                DeleteItemButton.SetActive(false);
                 break;
             case ItemType.Egg:
                 UseItemButton.SetActive(true);
@@ -141,14 +144,29 @@ public class Inventory : MonoBehaviour
 
     public void UseActionButton()
     {
-
-        if (bell != null)
+        if (bell != null && itemCurrentlySelected.prefab.CompareTag("Egg"))
         {
             print(itemCurrentlySelected.name + " a été utilisé");
             bell.PlacePrefab(itemCurrentlySelected);
-            CloseActionPanel();
+            content.Remove(itemCurrentlySelected);
         }
-        
+
+        if (itemCurrentlySelected.prefab.CompareTag("FlashLight"))
+        {
+            if (flashLightUsed == false)
+            {
+                lightFL.SetActive(true);
+                flashLightUsed = true;
+            }
+
+            else
+            {
+                lightFL.SetActive(false);
+                flashLightUsed = false;
+            }
+        }
+        RefreshContent();
+        CloseActionPanel();
     }
 
     public void InspectActionButton()
@@ -197,16 +215,6 @@ public class Inventory : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             CameraScript.enabled = true; // débloque la camera
-        }
-
-        // Permet de reconnaitre oeuf choisi
-
-        if (usePressed)
-        {
-            if (itemCurrentlySelected != null && itemCurrentlySelected.prefab.CompareTag("EggLeaf"))
-            {
-                print(itemCurrentlySelected.name + " a été utilisé");
-            }
         }
     }
 }

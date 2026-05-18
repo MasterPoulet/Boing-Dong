@@ -17,7 +17,7 @@ public class ItemData : ScriptableObject
 
 public enum ItemType
 {
-    Consumable,
+    Utilitaire,
     Egg,
     Key,
 }
