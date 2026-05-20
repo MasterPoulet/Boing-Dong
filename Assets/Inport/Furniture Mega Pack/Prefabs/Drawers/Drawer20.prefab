@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 2079294725215320424}
   - component: {fileID: 4280931162544130923}
   - component: {fileID: 5068071182915289208}
+  - component: {fileID: 2987392393345077571}
   m_Layer: 0
   m_Name: Drawer20_Body
   m_TagString: Untagged
@@ -466,3 +467,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2987392393345077571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079045764353072919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.003536387, y: 0.0028013657, z: 0.0058512352}
+  m_Center: {x: 1.4865455e-18, y: -1.743804e-10, z: 0.0029256176}
