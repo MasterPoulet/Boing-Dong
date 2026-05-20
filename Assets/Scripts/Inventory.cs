@@ -48,6 +48,8 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject lightFL;
 
+    // map
+    public bool mapUsed = false;
 
     private void Awake()
     {
