@@ -51,6 +51,12 @@ public class Inventory : MonoBehaviour
     // map
     public bool mapUsed = false;
 
+    // TUTO
+    public Tuto tuto;
+
+    // ObjetsClés
+    public ChildDoor childDoor;
+
     private void Awake()
     {
         instance = this;
@@ -77,6 +83,7 @@ public class Inventory : MonoBehaviour
         actionPanel.SetActive(false);
         ToolTipSystem.instance.Hide();
         isOpen = false;
+        tuto.CloseTutoInventory();
     }
 
     private void RefreshContent()
@@ -167,6 +174,14 @@ public class Inventory : MonoBehaviour
                 flashLightUsed = false;
             }
         }
+
+        if (childDoor != null && itemCurrentlySelected.prefab.CompareTag("KeyChild"))
+        {
+            print(itemCurrentlySelected.name + " a été utilisé");
+            childDoor.OpenChildDoor();
+            content.Remove(itemCurrentlySelected);
+        }
+
         RefreshContent();
         CloseActionPanel();
     }

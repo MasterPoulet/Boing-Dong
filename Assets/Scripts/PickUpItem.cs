@@ -3,11 +3,17 @@ using UnityEngine;
 public class PickUpItem : MonoBehaviour
 {
     public Inventory inventory;
+    public Tuto tuto;
 
     private GameObject currentItem;
 
     public bool isdestroyed = false;
+    public bool UiOcOpen;
 
+    private void Start()
+    {
+        UiOcOpen = true;
+    }
 
     // Regarde si le gameobject a le tag Item et s'il est dans le collider
     private void OnTriggerEnter(Collider other)
@@ -32,6 +38,12 @@ public class PickUpItem : MonoBehaviour
         isdestroyed = true;
     }
 
+    private void OpenUItutoOC()
+    {
+        UiOcOpen = false;
+        tuto.OpenTutoObjCles();
+    }
+
     // Si le joueur appuie sur E, cela ramasse/rajoute l'item à l'inventaire sauf s'il n'y a plus de places
     public void Update()
     {
@@ -42,6 +54,11 @@ public class PickUpItem : MonoBehaviour
             if (currentItem.CompareTag("FlashLight"))
             {
                 OpenUItutoI();
+            }
+
+            if (currentItem.CompareTag("KeyChild") && UiOcOpen)
+            {
+                OpenUItutoOC();
             }
 
             if (itemComponent != null)

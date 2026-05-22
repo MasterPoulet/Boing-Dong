@@ -9,6 +9,7 @@ TagManager:
   - Bell
   - Egg
   - FlashLight
+  - KeyChild
   layers:
   - Default
   - TransparentFX

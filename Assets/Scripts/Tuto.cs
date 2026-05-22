@@ -5,11 +5,19 @@ public class Tuto : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private PickUpItem pickUpScript;
 
-    [SerializeField] private GameObject UiTutoI;
+    [SerializeField] private GameObject UiTutoI; 
+    [SerializeField] private GameObject UiTutoInventory;
+    private bool tutoInventCanOpen = true;
+
+    [SerializeField] private GameObject UiObjetsCles;
+
+    public MonoBehaviour CameraScript;
 
     private void Start()
     {
         UiTutoI.SetActive(false);
+        UiTutoInventory.SetActive(false);
+        UiObjetsCles.SetActive(false);
     }
 
     private void Update()
@@ -19,10 +27,34 @@ public class Tuto : MonoBehaviour
             UiTutoI.SetActive(true);
         }
 
-        if (inventory.isOpen)
+        if (inventory.isOpen && tutoInventCanOpen)
         {
             pickUpScript.isdestroyed = false;
             UiTutoI.SetActive(false);
+            UiTutoInventory.SetActive(true);
         }
+    }
+
+    public void CloseTutoInventory()
+    {
+        UiTutoInventory.SetActive(false);
+        tutoInventCanOpen = false;
+    }
+
+    public void OpenTutoObjCles()
+    {
+        UiObjetsCles.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        CameraScript.enabled = false; // bloque la camera
+        Cursor.lockState = CursorLockMode.Confined; // permet que la souris ne sorte pas de la fenêtre de jeu
+    }
+
+    public void CloseTutoObjCles()
+    {
+        UiObjetsCles.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        CameraScript.enabled = true; // débloque la camera
     }
 }
