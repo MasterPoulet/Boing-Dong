@@ -6,6 +6,8 @@ public class PickUpItem : MonoBehaviour
 
     private GameObject currentItem;
 
+    public bool isdestroyed = false;
+
 
     // Regarde si le gameobject a le tag Item et s'il est dans le collider
     private void OnTriggerEnter(Collider other)
@@ -25,12 +27,22 @@ public class PickUpItem : MonoBehaviour
         }
     }
 
+    private void OpenUItutoI()
+    {
+        isdestroyed = true;
+    }
+
     // Si le joueur appuie sur E, cela ramasse/rajoute l'item à l'inventaire sauf s'il n'y a plus de places
-    private void Update()
+    public void Update()
     {
         if (currentItem != null && Input.GetKeyDown(KeyCode.E) && !inventory.IsFull())
         {
             Item itemComponent = currentItem.GetComponent<Item>();
+
+            if (currentItem.CompareTag("FlashLight"))
+            {
+                OpenUItutoI();
+            }
 
             if (itemComponent != null)
             {
