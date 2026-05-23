@@ -57,6 +57,11 @@ public class Inventory : MonoBehaviour
     // ObjetsClés
     public ChildDoor childDoor;
 
+    // Sons
+    public AudioSource buttonSelected;
+    [SerializeField] private AudioSource flashlightOn;
+    [SerializeField] private AudioSource flashlightOff;
+
     private void Awake()
     {
         instance = this;
@@ -74,6 +79,7 @@ public class Inventory : MonoBehaviour
     {
         inventoryPanel.SetActive(true);
         isOpen = true;
+        buttonSelected.Play();
     }
 
     // Permet de fermer l'inventaire lorsque l'on clique sur la croix
@@ -143,12 +149,14 @@ public class Inventory : MonoBehaviour
 
         actionPanel.transform.position = slotPosition;
         actionPanel.SetActive(true);
+        buttonSelected.Play();
     }
 
     public void  CloseActionPanel()
     {
         actionPanel.SetActive(false);
         itemCurrentlySelected = null;
+        buttonSelected.Play();
     }
 
     public void UseActionButton()
@@ -166,12 +174,14 @@ public class Inventory : MonoBehaviour
             {
                 lightFL.SetActive(true);
                 flashLightUsed = true;
+                flashlightOn.Play();
             }
 
             else
             {
                 lightFL.SetActive(false);
                 flashLightUsed = false;
+                flashlightOff.Play();
             }
         }
 

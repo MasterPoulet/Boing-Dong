@@ -10,6 +10,9 @@ public class Tuto : MonoBehaviour
     private bool tutoInventCanOpen = true;
 
     [SerializeField] private GameObject UiObjetsCles;
+    [SerializeField] private GameObject UiIntro;
+
+    [SerializeField] private AudioSource ClocheIntro;
 
     public MonoBehaviour CameraScript;
 
@@ -19,10 +22,17 @@ public class Tuto : MonoBehaviour
         UiTutoI.SetActive(false);
         UiTutoInventory.SetActive(false);
         UiObjetsCles.SetActive(false);
+        UiIntro.SetActive(true);
     }
 
     private void Update()
     {
+        if (!ClocheIntro.isPlaying)
+        {
+            UiIntro.SetActive(false);
+        }
+
+
         if (pickUpScript.isdestroyed)
         {
             UiTutoI.SetActive(true);
@@ -40,6 +50,7 @@ public class Tuto : MonoBehaviour
     {
         UiTutoInventory.SetActive(false);
         tutoInventCanOpen = false;
+        inventory.buttonSelected.Play();
     }
 
     public void OpenTutoObjCles()

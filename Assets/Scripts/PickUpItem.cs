@@ -9,6 +9,8 @@ public class PickUpItem : MonoBehaviour
 
     public bool isdestroyed = false;
 
+    [SerializeField] private AudioSource pickUpItem;
+
     // Regarde si le gameobject a le tag Item et s'il est dans le collider
     private void OnTriggerEnter(Collider other)
     {
@@ -42,6 +44,8 @@ public class PickUpItem : MonoBehaviour
     {
         if (currentItem != null && Input.GetKeyDown(KeyCode.E) && !inventory.IsFull())
         {
+            pickUpItem.Play();
+
             Item itemComponent = currentItem.GetComponent<Item>();
 
             if (currentItem.CompareTag("FlashLight"))

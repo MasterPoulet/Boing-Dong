@@ -19,6 +19,8 @@ public class Bell : MonoBehaviour
     //Audio
     [SerializeField] private AudioSource soundDialogue1;
     [SerializeField] private AudioSource soundDialogue2;
+    private bool played1 = false;
+    private bool played2 = false;
 
     private void Start()
     {
@@ -53,14 +55,20 @@ public class Bell : MonoBehaviour
     private void DialogueEnter1()
     {
         dialogue1Enter.SetActive(true);
-        soundDialogue1.Play();
-        soundDialogue1.volume = 0;
+        if (!played1)
+        {
+            soundDialogue1.Play();
+            played1 = true;
+        }
     }
 
     private void DialogueExit1()
     {
         dialogue1Exit.SetActive(true);
-        soundDialogue2.Play();
-        soundDialogue2.volume = 0;
+        if (!played2)
+        {
+            soundDialogue2.Play();
+            played2 = true;
+        }
     }
 }
