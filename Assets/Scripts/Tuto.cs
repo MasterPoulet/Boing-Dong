@@ -13,6 +13,7 @@ public class Tuto : MonoBehaviour
 
     public MonoBehaviour CameraScript;
 
+
     private void Start()
     {
         UiTutoI.SetActive(false);
@@ -44,17 +45,10 @@ public class Tuto : MonoBehaviour
     public void OpenTutoObjCles()
     {
         UiObjetsCles.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        CameraScript.enabled = false; // bloque la camera
-        Cursor.lockState = CursorLockMode.Confined; // permet que la souris ne sorte pas de la fenêtre de jeu
     }
 
     public void CloseTutoObjCles()
     {
         UiObjetsCles.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        CameraScript.enabled = true; // débloque la camera
     }
 }

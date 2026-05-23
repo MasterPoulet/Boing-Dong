@@ -3,6 +3,7 @@ using UnityEngine;
 public class ChildDoor : MonoBehaviour
 {
     [SerializeField] private Inventory inventory;
+    [SerializeField] private Tuto tuto;
 
     [SerializeField] private GameObject childDoorClosed;
     [SerializeField] private GameObject childDoorOpen;
@@ -32,5 +33,6 @@ public class ChildDoor : MonoBehaviour
     {
         childDoorClosed.SetActive(false);
         childDoorOpen.SetActive(true);
+        tuto.CloseTutoObjCles();
     }
 }

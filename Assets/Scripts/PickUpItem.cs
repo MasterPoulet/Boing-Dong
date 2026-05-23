@@ -8,12 +8,6 @@ public class PickUpItem : MonoBehaviour
     private GameObject currentItem;
 
     public bool isdestroyed = false;
-    public bool UiOcOpen;
-
-    private void Start()
-    {
-        UiOcOpen = true;
-    }
 
     // Regarde si le gameobject a le tag Item et s'il est dans le collider
     private void OnTriggerEnter(Collider other)
@@ -40,7 +34,6 @@ public class PickUpItem : MonoBehaviour
 
     private void OpenUItutoOC()
     {
-        UiOcOpen = false;
         tuto.OpenTutoObjCles();
     }
 
@@ -56,7 +49,7 @@ public class PickUpItem : MonoBehaviour
                 OpenUItutoI();
             }
 
-            if (currentItem.CompareTag("KeyChild") && UiOcOpen)
+            if (currentItem.CompareTag("KeyChild"))
             {
                 OpenUItutoOC();
             }
