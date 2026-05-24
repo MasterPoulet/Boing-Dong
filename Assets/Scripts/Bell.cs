@@ -31,9 +31,12 @@ public class Bell : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        inventory.bell = this;
-        Destroy(goldWall);
-        DialogueEnter1();
+        if (other.CompareTag("Player"))
+        {
+            inventory.bell = this;
+            Destroy(goldWall);
+            DialogueEnter1();
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -41,9 +44,9 @@ public class Bell : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inventory.bell = null;
+            DialogueExit1();
+            sprintTuto.SetActive(true);
         }
-        DialogueExit1();
-        sprintTuto.SetActive(true);
 
     }
 
