@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: E_EasterRB
   m_EditorClassIdentifier: 
   nameItem: "\u0152uf Cercle"
-  descriptionItem: "Un \u0153uf noir aux motifs de cercles rouges . Appartient \xE0
+  descriptionItem: "Un \u0153uf noir aux motifs de cercles rouges. Appartient \xE0
     la famille \"Basique\"."
   visual: {fileID: 21300000, guid: aa665ca40517b8c4597c0e75ccc1c0e6, type: 3}
   prefab: {fileID: 0}
   stackable: 0
-  ID: 1
+  ID: 0
   itemType: 1
