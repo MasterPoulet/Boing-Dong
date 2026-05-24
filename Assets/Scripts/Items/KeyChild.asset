@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8df2ea095da814ca644e7518aeac65, type: 3}
   m_Name: KeyChild
   m_EditorClassIdentifier: 
-  nameItem: Pierre
-  descriptionItem: Une pierre banale rien de plus, rien de moins...
-  visual: {fileID: 21300000, guid: b74c31d447d2f5d41a61081bdf5e7126, type: 3}
-  prefab: {fileID: 5125522779562178636, guid: 03ab711016be82840b4148fcd6b77470, type: 3}
+  nameItem: "Cl\xE9 Noire"
+  descriptionItem: "C'est la cl\xE9 de ma chambre."
+  visual: {fileID: 21300000, guid: 49e8c80742facfd4bb66e48ce540d07a, type: 3}
+  prefab: {fileID: 0}
   stackable: 1
   ID: 52
   itemType: 2

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8df2ea095da814ca644e7518aeac65, type: 3}
+  m_Name: E_NatureSand
+  m_EditorClassIdentifier: 
+  nameItem: "\u0152uf Sable"
+  descriptionItem: "Je met du sable partout \xE0 cause de cet \u0153uf... J'esp\xE8re
+    que papa ne s'en appercevra pas. Appartient \xE0 la famille \"Nature\"."
+  visual: {fileID: 21300000, guid: ff73aa9aefc1780419bc709a61db0e4d, type: 3}
+  prefab: {fileID: 0}
+  stackable: 0
+  ID: 13
+  itemType: 1
