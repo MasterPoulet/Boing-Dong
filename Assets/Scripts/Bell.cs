@@ -15,6 +15,8 @@ public class Bell : MonoBehaviour
     public GameObject sprintTuto; // Le collider sprint
     public GameObject dialogue1Enter; // Les dialogues
     public GameObject dialogue1Exit;
+    private bool bulleAffiche1 = false;
+    private bool bulleAffiche2 = false;
 
     //Audio
     [SerializeField] private AudioSource soundDialogue1;
@@ -57,7 +59,12 @@ public class Bell : MonoBehaviour
 
     private void DialogueEnter1()
     {
-        dialogue1Enter.SetActive(true);
+        if (!bulleAffiche1)
+        {
+            dialogue1Enter.SetActive(true);
+            bulleAffiche1 = true;
+        }
+
         if (!played1)
         {
             soundDialogue1.Play();
@@ -67,7 +74,12 @@ public class Bell : MonoBehaviour
 
     private void DialogueExit1()
     {
-        dialogue1Exit.SetActive(true);
+        if (!bulleAffiche2)
+        {
+            dialogue1Exit.SetActive(true);
+            bulleAffiche2 = true;
+        }
+
         if (!played2)
         {
             soundDialogue2.Play();

@@ -18,7 +18,6 @@ public class SocleEaster : MonoBehaviour
     private bool played3 = false;
     private bool played4 = false;
 
-
     private void Start()
     {
         dialogueEaster1.SetActive(false);

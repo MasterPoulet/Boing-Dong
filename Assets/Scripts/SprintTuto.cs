@@ -23,6 +23,7 @@ public class SprintTuto : MonoBehaviour
         {
             UiSprintTuto.SetActive(false);
             ColliderSprintTuto.SetActive(false);
+            Destroy(this);
         }
     }
 }
