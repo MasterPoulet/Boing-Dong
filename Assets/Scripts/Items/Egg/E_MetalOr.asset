@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: E_MetalOr
   m_EditorClassIdentifier: 
   nameItem: "\u0152uf d'Or"
-  descriptionItem: "Un \u0153uf dor\xE9 portant un couronne orn\xE9e de joyaux rouges. 
-    Appartient \xE0 la famille \"M\xE9tal\"."
+  descriptionItem: "Un \u0153uf dor\xE9 portant un couronne orn\xE9e de joyaux rouges.
+    \xC7a doit \xEAtre g\xE9nial d'\xEAtre un roi, tu n'es plus oblig\xE9 de faire
+    ce que tes parents t'ordonnent. Appartient \xE0 la famille \"M\xE9tal\"."
   visual: {fileID: 21300000, guid: 28f3e9adde22b06449c8435d755f635b, type: 3}
   prefab: {fileID: 0}
   stackable: 0

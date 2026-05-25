@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: E_ScifiBlue
   m_EditorClassIdentifier: 
   nameItem: "\u0152uf Blind\xE9"
-  descriptionItem: "Un \u0153uf assez intriguant orn\xE9 de lumi\xE8res bleues. 
-    Appartient \xE0 la famille \"Science-Fiction\"."
+  descriptionItem: "Un \u0153uf assez intriguant orn\xE9 de lumi\xE8res bleues. Il
+    est tr\xE8s solide, si je pouvais m'en faire une armure, tous mes probl\xE8mes
+    seraient r\xE9gl\xE9s. Appartient \xE0 la famille \"Science-Fiction\"."
   visual: {fileID: 21300000, guid: 2bd8dc4f02d9cff41bb1e54664250435, type: 3}
   prefab: {fileID: 0}
   stackable: 0
