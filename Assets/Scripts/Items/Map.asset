@@ -15,8 +15,8 @@ MonoBehaviour:
   nameItem: "Plan de la maison (inachev\xE9e)"
   descriptionItem: "Un plan de la maison que j'ai commenc\xE9 \xE0 dessiner hier.
     Il fait un peu brouillon et n'est pas finis mais il me sera utile."
-  visual: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 7952625641284018882, guid: a1add06d0ebd801428626c515f29f075, type: 3}
+  visual: {fileID: 21300000, guid: a915b633801a8b14a9ad1f5d390ade2c, type: 3}
+  prefab: {fileID: 0}
   stackable: 0
   ID: 51
   itemType: 0
