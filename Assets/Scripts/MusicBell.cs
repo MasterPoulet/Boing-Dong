@@ -3,12 +3,14 @@ using UnityEngine;
 public class MusicBell : MonoBehaviour
 {
     [SerializeField] private AudioSource musicBellRoom;
+    [SerializeField] private AudioSource thunder;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             musicBellRoom.Play();
+            thunder.Stop();
         }
     }
 
@@ -17,6 +19,7 @@ public class MusicBell : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             musicBellRoom.Stop();
+            thunder.Play();
         }
     }
 }
