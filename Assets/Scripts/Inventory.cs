@@ -62,6 +62,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private AudioSource flashlightOn;
     [SerializeField] private AudioSource flashlightOff;
 
+    [SerializeField] private Map map;
+
     private void Awake()
     {
         instance = this;
@@ -90,6 +92,7 @@ public class Inventory : MonoBehaviour
         ToolTipSystem.instance.Hide();
         isOpen = false;
         tuto.CloseTutoInventory();
+        map.FermetureMap();
     }
 
     private void RefreshContent()
@@ -192,6 +195,10 @@ public class Inventory : MonoBehaviour
             content.Remove(itemCurrentlySelected);
         }
 
+        if (itemCurrentlySelected.prefab.CompareTag("Map"))
+        {
+            map.OuvertureMap();
+        }
         RefreshContent();
         CloseActionPanel();
     }

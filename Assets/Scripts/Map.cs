@@ -14,9 +14,35 @@ public class Map : MonoBehaviour
         mapSS.SetActive(false);
     }
         
-    public void GestionMap()
+    public void OuvertureMap()
     {
+        mapRDC.SetActive(true);
+    }
 
+    public void FermetureMap()
+    {
+        mapEtage.SetActive(false);
+        mapRDC.SetActive(false);
+        mapSS.SetActive(false);
+    }
+
+    public void GoToEtage()
+    {
+        mapRDC.SetActive(false);
+        mapEtage.SetActive(true);
+    }
+
+    public void GoToRDC()
+    {
+        mapEtage.SetActive(false);
+        mapRDC.SetActive(true);
+        mapSS.SetActive(false);
+    }
+
+    public void GoToSS()
+    {
+        mapRDC.SetActive(false);
+        mapSS.SetActive(true);
     }
 
 }
