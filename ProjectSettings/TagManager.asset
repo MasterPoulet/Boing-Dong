@@ -11,6 +11,7 @@ TagManager:
   - FlashLight
   - KeyChild
   - Bulle
+  - Map
   layers:
   - Default
   - TransparentFX
