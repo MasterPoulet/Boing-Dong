@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class LeMechantVilain : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class LeMechantVilain : MonoBehaviour
     private bool isPausing = false;
     private bool isChasingPlayer = false;
 
+    private Animator animator;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -35,6 +38,8 @@ public class LeMechantVilain : MonoBehaviour
         {
             ChooseRandomPatrolPoint();
         }
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -51,6 +56,7 @@ public class LeMechantVilain : MonoBehaviour
     private IEnumerator FOVRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
+        animator.SetFloat("Speed", 0);
 
         while (true)
         {
@@ -103,6 +109,8 @@ public class LeMechantVilain : MonoBehaviour
         ChooseRandomPatrolPoint();
         agent.SetDestination(targetPoint.position);
 
+        animator.SetFloat("Speed", 1);
+
         isPausing = false;
     }
 
@@ -123,6 +131,7 @@ public class LeMechantVilain : MonoBehaviour
             Debug.Log("Tiger");
             isChasingPlayer = true;
             agent.SetDestination(playerRef.transform.position);
+            animator.SetFloat("Speed", 1);
         }
 
         if (!agent.pathPending && agent.remainingDistance < 1f)
@@ -131,6 +140,7 @@ public class LeMechantVilain : MonoBehaviour
             isChasingPlayer = false;
             canSwitch = true;
             currentState = State.Patrolling;
+            animator.SetFloat("Speed", 1);
         }
     }
 
