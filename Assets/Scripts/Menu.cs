@@ -28,6 +28,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void CLoseGame()
+    {
+        Application.Quit();
+    }
+
     public void AfficherJouer()
     {
         if (!jouerOn)

@@ -134,7 +134,7 @@ public class LeMechantVilain : MonoBehaviour
             animator.SetFloat("Speed", 1);
         }
 
-        if (!agent.pathPending && agent.remainingDistance < 1f)
+        if (!agent.pathPending && agent.remainingDistance < 20f)
         {
             Debug.Log("Rawr");
             isChasingPlayer = false;
