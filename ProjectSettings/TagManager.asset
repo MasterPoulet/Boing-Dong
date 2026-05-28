@@ -12,6 +12,7 @@ TagManager:
   - KeyChild
   - Bulle
   - Map
+  - KeyGreen
   layers:
   - Default
   - TransparentFX

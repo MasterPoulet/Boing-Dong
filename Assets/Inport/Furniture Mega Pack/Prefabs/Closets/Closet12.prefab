@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2794259857419556815}
   - component: {fileID: 6358764256513688159}
   - component: {fileID: 3499024594804682661}
+  - component: {fileID: 5316124168520768845}
   m_Layer: 0
   m_Name: Closet12_model
   m_TagString: Untagged
@@ -86,6 +87,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5316124168520768845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441343967527200067}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.010947866, y: 0.008892571, z: 0.025439925}
+  m_Center: {x: 2.328405e-10, y: -0.000000002274506, z: 0.012719962}
 --- !u!1 &7157247942824410784
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class PickUpItem : MonoBehaviour
 
     [SerializeField] private AudioSource pickUpItem;
 
+    [SerializeField] private GameObject Hand;
+
     // Regarde si le gameobject a le tag Item et s'il est dans le collider
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +20,11 @@ public class PickUpItem : MonoBehaviour
         {
             Debug.Log("Item détecté devant le joueur");
             currentItem = other.gameObject;
+            Hand.SetActive(true);
+        }
+        else
+        {
+            Hand.SetActive(false);
         }
     }
 
@@ -26,6 +33,7 @@ public class PickUpItem : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Object"))
         {
             currentItem = null;
+            Hand.SetActive(false);
         }
     }
 
@@ -45,6 +53,7 @@ public class PickUpItem : MonoBehaviour
         if (currentItem != null && Input.GetKeyDown(KeyCode.E) && !inventory.IsFull())
         {
             pickUpItem.Play();
+            Hand.SetActive(false);
 
             Item itemComponent = currentItem.GetComponent<Item>();
 

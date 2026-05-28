@@ -6,6 +6,7 @@ public class SprintTuto : MonoBehaviour
 
     [SerializeField] private GameObject UiSprintTuto;
     [SerializeField] private GameObject ColliderSprintTuto;
+    [SerializeField] private GameObject Ebind;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class SprintTuto : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         UiSprintTuto.SetActive(true);
+        Destroy(Ebind);
     }
 
     private void Update()
