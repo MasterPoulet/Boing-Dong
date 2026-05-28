@@ -16,6 +16,8 @@ public class Tuto : MonoBehaviour
 
     public MonoBehaviour CameraScript;
 
+    [SerializeField] private GameObject point;
+
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class Tuto : MonoBehaviour
         if (!ClocheIntro.isPlaying)
         {
             UiIntro.SetActive(false);
+            point.SetActive(true);
         }
 
 
