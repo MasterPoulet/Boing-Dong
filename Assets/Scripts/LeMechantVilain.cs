@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System.Runtime.CompilerServices;
 
 public class LeMechantVilain : MonoBehaviour
 {
@@ -24,8 +25,16 @@ public class LeMechantVilain : MonoBehaviour
     private Transform targetPoint;
     private bool isPausing = false;
     private bool isChasingPlayer = false;
+    private bool isChasingSong = false;
 
     private Animator animator;
+
+    [SerializeField] private GameObject LightRed;
+
+    // public AudioSource boing;
+    /// <summary>
+    /// public AudioSource evilBoing;
+    /// </summary>
 
     private void Start()
     {
@@ -40,6 +49,8 @@ public class LeMechantVilain : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+
+        LightRed.SetActive(false);
     }
 
     private void Update()
@@ -57,6 +68,7 @@ public class LeMechantVilain : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
         animator.SetFloat("Speed", 0);
+        // boing.Stop();
 
         while (true)
         {
@@ -112,6 +124,9 @@ public class LeMechantVilain : MonoBehaviour
         animator.SetFloat("Speed", 1);
 
         isPausing = false;
+
+        LightRed.SetActive(false);
+        // boing.Play();
     }
 
     private void ChooseRandomPatrolPoint()
@@ -132,6 +147,7 @@ public class LeMechantVilain : MonoBehaviour
             isChasingPlayer = true;
             agent.SetDestination(playerRef.transform.position);
             animator.SetFloat("Speed", 1);
+            LightRed.SetActive(true);
         }
 
         if (!agent.pathPending && agent.remainingDistance < 20f)

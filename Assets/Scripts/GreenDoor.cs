@@ -33,6 +33,5 @@ public class GreenDoor : MonoBehaviour
     {
         greenDoorClosed.SetActive(false);
         greenDoorOpen.SetActive(true);
-        tuto.CloseTutoObjCles();
     }
 }
