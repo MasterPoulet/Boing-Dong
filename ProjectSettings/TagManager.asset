@@ -13,6 +13,7 @@ TagManager:
   - Bulle
   - Map
   - KeyGreen
+  - Echelle
   layers:
   - Default
   - TransparentFX

@@ -64,6 +64,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private AudioSource flashlightOff;
 
     [SerializeField] private Map map;
+    [SerializeField] private Echelle echelle;
 
     private void Awake()
     {
@@ -207,6 +208,14 @@ public class Inventory : MonoBehaviour
         {
             map.OuvertureMap();
         }
+
+        if (echelle != null && itemCurrentlySelected.prefab.CompareTag("Echelle"))
+        {
+            print(itemCurrentlySelected.name + " a été utilisé");
+            echelle.ActiveEchelle();
+            content.Remove(itemCurrentlySelected);
+        }
+
         RefreshContent();
         CloseActionPanel();
     }
