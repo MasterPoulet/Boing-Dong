@@ -4,6 +4,7 @@ public class MusicBell : MonoBehaviour
 {
     [SerializeField] private AudioSource musicBellRoom;
     [SerializeField] private AudioSource thunder;
+    [SerializeField] private AudioSource ambiant;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,6 +12,7 @@ public class MusicBell : MonoBehaviour
         {
             musicBellRoom.Play();
             thunder.Stop();
+            ambiant.Stop();
         }
     }
 
@@ -20,6 +22,7 @@ public class MusicBell : MonoBehaviour
         {
             musicBellRoom.Stop();
             thunder.Play();
+            ambiant.Play();
         }
     }
 }

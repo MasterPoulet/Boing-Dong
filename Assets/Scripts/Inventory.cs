@@ -63,6 +63,8 @@ public class Inventory : MonoBehaviour
     public AudioSource buttonSelected;
     [SerializeField] private AudioSource flashlightOn;
     [SerializeField] private AudioSource flashlightOff;
+    [SerializeField] private AudioSource doorOpen;
+    [SerializeField] private AudioSource ladder;
 
     [SerializeField] private Map map;
     [SerializeField] private Echelle echelle;
@@ -195,6 +197,7 @@ public class Inventory : MonoBehaviour
         {
             print(itemCurrentlySelected.name + " a été utilisé");
             childDoor.OpenChildDoor();
+            doorOpen.Play();
             content.Remove(itemCurrentlySelected);
         }
 
@@ -202,6 +205,7 @@ public class Inventory : MonoBehaviour
         {
             print(itemCurrentlySelected.name + " a été utilisé");
             greenDoor.OpenGreenDoor();
+            doorOpen.Play();
             content.Remove(itemCurrentlySelected);
         }
 
@@ -209,6 +213,7 @@ public class Inventory : MonoBehaviour
         {
             print(itemCurrentlySelected.name + " a été utilisé");
             blueDoor.OpenBlueDoor();
+            doorOpen.Play();
             content.Remove(itemCurrentlySelected);
         }
 
@@ -221,6 +226,7 @@ public class Inventory : MonoBehaviour
         {
             print(itemCurrentlySelected.name + " a été utilisé");
             echelle.ActiveEchelle();
+            ladder.Play();
             content.Remove(itemCurrentlySelected);
         }
 

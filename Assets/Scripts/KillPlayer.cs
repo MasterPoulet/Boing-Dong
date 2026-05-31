@@ -14,6 +14,7 @@ public class KillPlayer : MonoBehaviour
     //Audio
     [SerializeField] private AudioSource soundDialogue1;
     [SerializeField] private AudioSource soundDialogue2;
+    [SerializeField] private AudioSource looser;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class KillPlayer : MonoBehaviour
             cc.enabled = false;
             other.transform.position = playerPos.position;
             cc.enabled = true;
+            looser.Play();
             StartCoroutine(Attendre2secondes());
         }
 

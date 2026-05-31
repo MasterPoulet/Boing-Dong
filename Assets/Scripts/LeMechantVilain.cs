@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
-using UnityEngine.EventSystems;
-using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class LeMechantVilain : MonoBehaviour
 {
     private enum State { Patrolling, ChasingPlayer };
     private State currentState = State.Patrolling;
 
-    private bool canSwitch = true;
     public float moveSpeed = 2f;
     public Transform[] patrolPoints;
     public float pauseDuration = 2f;
@@ -25,16 +23,12 @@ public class LeMechantVilain : MonoBehaviour
     private Transform targetPoint;
     private bool isPausing = false;
     private bool isChasingPlayer = false;
-    private bool isChasingSong = false;
 
     private Animator animator;
 
     [SerializeField] private GameObject LightRed;
-
-    // public AudioSource boing;
-    /// <summary>
-    /// public AudioSource evilBoing;
-    /// </summary>
+    public AudioSource boing;
+    public AudioSource evilBoing;
 
     private void Start()
     {
@@ -42,33 +36,43 @@ public class LeMechantVilain : MonoBehaviour
         agent.speed = moveSpeed;
 
         playerRef = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
+
+        LightRed.SetActive(false);
 
         if (patrolPoints.Length > 0)
         {
             ChooseRandomPatrolPoint();
+            agent.SetDestination(targetPoint.position);
         }
 
-        animator = GetComponent<Animator>();
-
-        LightRed.SetActive(false);
+        StartCoroutine(FOVRoutine());
     }
 
     private void Update()
     {
-        SwitchState();
+        //Rescue si l'agent sort du NavMesh
+        if (!agent.isOnNavMesh)
+        {
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
+                agent.Warp(hit.position);
+            return;
+        }
+
+        HandleState();
 
         if (!isPausing && !isChasingPlayer && !agent.pathPending && agent.remainingDistance < 1f)
         {
-            canSwitch = true;
             currentState = State.Patrolling;
+            if (!isPausing)
+                StartCoroutine(PauseAndPatrol());
         }
     }
 
     private IEnumerator FOVRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
-        animator.SetFloat("Speed", 0);
-        // boing.Stop();
 
         while (true)
         {
@@ -93,8 +97,13 @@ public class LeMechantVilain : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
-                    canSwitch = true;
-                    currentState = State.ChasingPlayer;
+
+                    if (currentState != State.ChasingPlayer)
+                    {
+                        isChasingPlayer = true;
+                        currentState = State.ChasingPlayer;
+                        LightRed.SetActive(true);
+                    }
                 }
                 else
                 {
@@ -112,21 +121,35 @@ public class LeMechantVilain : MonoBehaviour
         }
     }
 
+    private void HandleState()
+    {
+        switch (currentState)
+        {
+            case State.Patrolling:
+                break;
+
+            case State.ChasingPlayer:
+                ChasingPlayer();
+                break;
+        }
+    }
+
     private IEnumerator PauseAndPatrol()
     {
         isPausing = true;
+        animator.SetFloat("Speed", 0);
+        boing.Stop();
 
         yield return new WaitForSeconds(pauseDuration);
 
         ChooseRandomPatrolPoint();
         agent.SetDestination(targetPoint.position);
-
         animator.SetFloat("Speed", 1);
-
-        isPausing = false;
+        boing.Play();
+        evilBoing.Stop();
 
         LightRed.SetActive(false);
-        // boing.Play();
+        isPausing = false;
     }
 
     private void ChooseRandomPatrolPoint()
@@ -135,7 +158,6 @@ public class LeMechantVilain : MonoBehaviour
         {
             int randomIndex = Random.Range(0, patrolPoints.Length);
             targetPoint = patrolPoints[randomIndex];
-            Debug.Log(targetPoint);
         }
     }
 
@@ -143,18 +165,18 @@ public class LeMechantVilain : MonoBehaviour
     {
         if (canSeePlayer)
         {
-            Debug.Log("Tiger");
-            isChasingPlayer = true;
             agent.SetDestination(playerRef.transform.position);
             animator.SetFloat("Speed", 1);
-            LightRed.SetActive(true);
+            if (!evilBoing.isPlaying)
+            {
+                evilBoing.Play();
+            }
+            boing.Stop();
         }
 
-        if (!agent.pathPending && agent.remainingDistance < 20f)
+        if (!agent.pathPending && agent.remainingDistance < 1.5f && !canSeePlayer)
         {
-            Debug.Log("Rawr");
             isChasingPlayer = false;
-            canSwitch = true;
             currentState = State.Patrolling;
             animator.SetFloat("Speed", 1);
         }
@@ -162,12 +184,13 @@ public class LeMechantVilain : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (patrolPoints.Length > 0)
+        if (patrolPoints != null && patrolPoints.Length > 0)
         {
             Gizmos.color = Color.blue;
             foreach (Transform patrolPoint in patrolPoints)
             {
-                Gizmos.DrawSphere(patrolPoint.position, 0.3f);
+                if (patrolPoint != null)
+                    Gizmos.DrawSphere(patrolPoint.position, 0.3f);
             }
         }
 
@@ -179,25 +202,5 @@ public class LeMechantVilain : MonoBehaviour
         Vector3 rightBoundary = Quaternion.Euler(0, angle / 2, 0) * transform.forward * radius;
         Gizmos.DrawLine(transform.position, transform.position + leftBoundary);
         Gizmos.DrawLine(transform.position, transform.position + rightBoundary);
-    }
-
-    void SwitchState()
-    {
-        if (canSwitch)
-        {
-            switch (currentState)
-            {
-                case State.Patrolling:
-                    StartCoroutine(FOVRoutine());
-                    StartCoroutine(PauseAndPatrol());
-                    break;
-                case State.ChasingPlayer:
-                    StartCoroutine(FOVRoutine());
-                    ChasingPlayer();
-                    break;
-            }
-            canSwitch = false;
-        }
-        Debug.Log(canSwitch);
     }
 }

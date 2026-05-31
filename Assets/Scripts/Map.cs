@@ -6,6 +6,11 @@ public class Map : MonoBehaviour
     [SerializeField] private GameObject mapEtage;
     [SerializeField] private GameObject mapSS;
 
+    [SerializeField] private AudioSource mapOpen;
+    [SerializeField] private AudioSource mapClose;
+
+    private bool mapActive = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,13 +22,20 @@ public class Map : MonoBehaviour
     public void OuvertureMap()
     {
         mapRDC.SetActive(true);
+        mapOpen.Play();
+        mapActive = true;
     }
 
     public void FermetureMap()
     {
-        mapEtage.SetActive(false);
-        mapRDC.SetActive(false);
-        mapSS.SetActive(false);
+        if (mapActive)
+        {
+            mapEtage.SetActive(false);
+            mapRDC.SetActive(false);
+            mapSS.SetActive(false);
+            mapClose.Play();
+            mapActive = false;
+        }
     }
 
     public void GoToEtage()
