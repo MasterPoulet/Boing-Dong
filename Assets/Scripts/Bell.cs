@@ -17,6 +17,7 @@ public class Bell : MonoBehaviour
     [SerializeField] private GameObject egg3;
     [SerializeField] private GameObject egg4;
     [SerializeField] private GameObject lapinou; //L'ennemis
+    [SerializeField] private GameObject RedCage;
     public GameObject sprintTuto; // Le collider sprint
     public GameObject dialogue1Enter; // Les dialogues
     public GameObject dialogue1Exit;
@@ -39,6 +40,7 @@ public class Bell : MonoBehaviour
         egg2.SetActive(false);
         egg3.SetActive(false);
         egg4.SetActive(false);
+        RedCage.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -52,6 +54,7 @@ public class Bell : MonoBehaviour
             egg2.SetActive(true);
             egg3.SetActive(true);
             egg4.SetActive(true);
+            RedCage.SetActive(true);
 
         }
     }

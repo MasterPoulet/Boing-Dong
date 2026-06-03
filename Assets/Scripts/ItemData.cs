@@ -20,4 +20,5 @@ public enum ItemType
     Utilitaire,
     Egg,
     Key,
+    Yuselegg,
 }

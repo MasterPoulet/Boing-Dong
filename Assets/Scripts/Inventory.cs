@@ -154,6 +154,11 @@ public class Inventory : MonoBehaviour
                 InspectItemButton.SetActive(true);
                 DeleteItemButton.SetActive(false);
                 break;
+            case ItemType.Yuselegg:
+                UseItemButton.SetActive(false);
+                InspectItemButton.SetActive(true);
+                DeleteItemButton.SetActive(false);
+                break;
         }
 
         actionPanel.transform.position = slotPosition;

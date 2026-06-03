@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Yuselegg
   m_EditorClassIdentifier: 
   nameItem: Yuselegg
-  descriptionItem: Il me rappel la clim de Brassart...
+  descriptionItem: "F\xE9licitation, vous avez trouv\xE9 le \"Yuselegg\". Vous avez
+    donc gagn\xE9 -1 slot d'inventaire (la cloche n'en veux pas visiblement)..."
   visual: {fileID: 21300000, guid: a30f7e13ea2ae9c43969595d346d38e9, type: 3}
   prefab: {fileID: 0}
   stackable: 0
   ID: 100
-  itemType: 1
+  itemType: 3
