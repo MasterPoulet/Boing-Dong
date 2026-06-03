@@ -16,6 +16,6 @@ MonoBehaviour:
   descriptionItem: "C'est la cl\xE9 de ma chambre."
   visual: {fileID: 21300000, guid: 49e8c80742facfd4bb66e48ce540d07a, type: 3}
   prefab: {fileID: 0}
-  stackable: 1
+  stackable: 0
   ID: 52
   itemType: 2

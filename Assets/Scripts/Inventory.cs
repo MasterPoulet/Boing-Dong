@@ -58,6 +58,7 @@ public class Inventory : MonoBehaviour
     public ChildDoor childDoor;
     public GreenDoor greenDoor;
     public BluenDoor blueDoor;
+    public RedDoor redDoor;
 
     // Sons
     public AudioSource buttonSelected;
@@ -213,6 +214,14 @@ public class Inventory : MonoBehaviour
         {
             print(itemCurrentlySelected.name + " a été utilisé");
             blueDoor.OpenBlueDoor();
+            doorOpen.Play();
+            content.Remove(itemCurrentlySelected);
+        }
+
+        if (redDoor != null && itemCurrentlySelected.prefab.CompareTag("KeyRed"))
+        {
+            print(itemCurrentlySelected.name + " a été utilisé");
+            redDoor.OpenRedDoor();
             doorOpen.Play();
             content.Remove(itemCurrentlySelected);
         }

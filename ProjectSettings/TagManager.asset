@@ -15,6 +15,7 @@ TagManager:
   - KeyGreen
   - Echelle
   - KeyBlue
+  - KeyRed
   layers:
   - Default
   - TransparentFX

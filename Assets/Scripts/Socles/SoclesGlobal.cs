@@ -12,11 +12,36 @@ public class SoclesGlobal : MonoBehaviour
 
     public bool globalfull = false;
 
+    [SerializeField] private GameObject vitre;
+    [SerializeField] private GameObject RedKeyF;
+    [SerializeField] private GameObject RedKeyV;
+
+    [SerializeField] private GameObject EndGame;    
+
+
+    private void Start()
+    {
+        vitre.SetActive(true);
+        RedKeyF.SetActive(true);
+        RedKeyV.SetActive(false);
+        EndGame.SetActive(false);
+    }
+
     public void Update()
     {
+        //RedKey
+        if (easter.easterFull && flower.flowerFull && nature.natureFull && sciFi.scifiFull && metal.metalFull)
+        {
+            globalfull = true;
+            vitre.SetActive(false);
+            RedKeyF.SetActive(false);
+            RedKeyV.SetActive(true);
+        }
+
         if (easter.easterFull && flower.flowerFull && nature.natureFull && sciFi.scifiFull && metal.metalFull && galaxy.galaxyFull)
         {
             globalfull = true;
+            EndGame.SetActive(true);
         }
     }
 }

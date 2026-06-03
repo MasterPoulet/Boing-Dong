@@ -15,8 +15,8 @@ MonoBehaviour:
   nameItem: "Cl\xE9 Bleue"
   descriptionItem: "Si je me rapelle bien, cette cl\xE9 ouvre une porte proche de
     ma chambre"
-  visual: {fileID: 21300000, guid: 0ddadeb6fbc2979418870d3f86498ce1, type: 3}
+  visual: {fileID: 21300000, guid: 3212ef9012001ca489f89714a14a22a7, type: 3}
   prefab: {fileID: 0}
-  stackable: 1
+  stackable: 0
   ID: 55
   itemType: 2
