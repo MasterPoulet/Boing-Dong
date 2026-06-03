@@ -1,20 +1,40 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class EndGameLunch : MonoBehaviour
 {
+    [SerializeField] private GameObject E;
+    public bool here = false;
 
-    [SerializeField] private GameObject Menu;
+    private void Start()
+    {
+        E.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("EndGame");
+            E.SetActive(true);
+            here = true;
         }
     }
 
-    public void GoMenu()
+    private void OnTriggerExit(Collider other)
     {
-        SceneManager.LoadScene("Menu");
+        if (other.CompareTag("Player"))
+        {
+            E.SetActive(false);
+            here = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (here && Input.GetKeyUp(KeyCode.E))
+        {
+            SceneManager.LoadScene("EndGame");
+        }
     }
 }

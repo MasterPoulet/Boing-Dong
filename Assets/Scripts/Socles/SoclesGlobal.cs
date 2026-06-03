@@ -16,7 +16,8 @@ public class SoclesGlobal : MonoBehaviour
     [SerializeField] private GameObject RedKeyF;
     [SerializeField] private GameObject RedKeyV;
 
-    [SerializeField] private GameObject EndGame;    
+    [SerializeField] private GameObject EndGame;   
+    [SerializeField] private GameObject lapinou;
 
 
     private void Start()
@@ -42,6 +43,7 @@ public class SoclesGlobal : MonoBehaviour
         {
             globalfull = true;
             EndGame.SetActive(true);
+            lapinou.SetActive(false);
         }
     }
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 
 public class ColliderDialogue : MonoBehaviour
 {
