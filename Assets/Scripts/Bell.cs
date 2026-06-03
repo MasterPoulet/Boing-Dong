@@ -12,6 +12,10 @@ public class Bell : MonoBehaviour
 
     // Apparaitre / Disparaitre
     [SerializeField] private GameObject goldWall; //Les murs
+    [SerializeField] private GameObject egg1;
+    [SerializeField] private GameObject egg2;
+    [SerializeField] private GameObject egg3;
+    [SerializeField] private GameObject egg4;
     [SerializeField] private GameObject lapinou; //L'ennemis
     public GameObject sprintTuto; // Le collider sprint
     public GameObject dialogue1Enter; // Les dialogues
@@ -31,6 +35,10 @@ public class Bell : MonoBehaviour
         dialogue1Exit.SetActive(false);
         sprintTuto.SetActive(false);
         lapinou.SetActive(false);
+        egg1.SetActive(false);
+        egg2.SetActive(false);
+        egg3.SetActive(false);
+        egg4.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -40,6 +48,11 @@ public class Bell : MonoBehaviour
             inventory.bell = this;
             Destroy(goldWall);
             DialogueEnter1();
+            egg1.SetActive(true);
+            egg2.SetActive(true);
+            egg3.SetActive(true);
+            egg4.SetActive(true);
+
         }
     }
 
