@@ -59,6 +59,7 @@ public class Inventory : MonoBehaviour
     public GreenDoor greenDoor;
     public BluenDoor blueDoor;
     public RedDoor redDoor;
+    public Echelle echelle;
 
     // Sons
     public AudioSource buttonSelected;
@@ -68,7 +69,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private AudioSource ladder;
 
     [SerializeField] private Map map;
-    [SerializeField] private Echelle echelle;
 
     private void Awake()
     {

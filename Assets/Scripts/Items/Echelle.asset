@@ -17,6 +17,6 @@ MonoBehaviour:
     \xE0 l'int\xE9rieur et je pense que c'est mieux comme \xE7a..."
   visual: {fileID: 21300000, guid: c307e982446f5bb4aa11ea65ada98a62, type: 3}
   prefab: {fileID: 0}
-  stackable: 1
+  stackable: 0
   ID: 54
   itemType: 2

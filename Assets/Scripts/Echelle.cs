@@ -17,6 +17,7 @@ public class Echelle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inEchelle = true;
+            inventory.echelle = this;
         }
     }
 
@@ -25,6 +26,7 @@ public class Echelle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inEchelle = false;
+            inventory.echelle = null;
         }
     }
 
